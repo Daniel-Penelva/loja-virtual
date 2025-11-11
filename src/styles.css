@@ -5,8 +5,14 @@
   --text-color: #333;
   --bg-color: #f8f9fa;
   --border-color: #dee2e6;
+
+  /* Modo escuro (valores serão sobrescritos quando .dark-mode estiver ativo) */
+  --header-bg: white;
+  --menu-hover-bg: var(--primary-color);
+  --menu-hover-text: white;
 }
 
+/* ===== Reset básico ===== */
 * {
   margin: 0;
   padding: 0;
@@ -17,6 +23,7 @@ body {
   font-family: "Poppins", sans-serif;
   color: var(--text-color);
   background-color: var(--bg-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
@@ -26,4 +33,21 @@ a {
 
 ul {
   list-style: none;
+}
+
+/* ===== MODO ESCURO ===== */
+body.dark-mode {
+  --primary-color: #91a7ff; /* Azul claro */
+  --accent-color: #ffd43b; /* Amarelo suave */
+  --text-color: #f1f3f5;
+  --bg-color: #1e1e2e;
+  --border-color: #343a40;
+  --header-bg: #2b2b3a;
+  --menu-hover-bg: #495057;
+  --menu-hover-text: var(--accent-color);
+}
+
+body.dark-mode {
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }

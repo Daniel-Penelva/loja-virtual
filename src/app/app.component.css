@@ -4,3 +4,38 @@
   margin: 0 auto;
   padding: 0 1rem;
 }
+
+/* ===== Botão fixo no canto superior direito ===== */
+.btn-toggle-theme {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.btn-toggle-theme:hover {
+  background-color: var(--accent-color);
+  color: #1e1e2e;
+  transform: translateY(-2px) scale(1.05);
+}
+
+/* ===== Modo escuro ===== */
+body.dark-mode .btn-toggle-theme {
+  background-color: var(--accent-color);
+  color: #1e1e2e;
+}
+
+body.dark-mode .btn-toggle-theme:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
