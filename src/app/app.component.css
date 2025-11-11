@@ -16,17 +16,29 @@
   border-radius: 50%;
   width: 45px;
   height: 45px;
-  font-size: 1.2rem;
   cursor: pointer;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
   transition: all 0.3s ease;
   z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
 }
 
 .btn-toggle-theme:hover {
   background-color: var(--accent-color);
   color: #1e1e2e;
   transform: translateY(-2px) scale(1.05);
+}
+
+/* ===== Ícone com animação ===== */
+.rotate-icon {
+  transition: transform 0.5s ease, color 0.3s ease;
+}
+
+.btn-toggle-theme:hover .rotate-icon {
+  transform: rotate(20deg);
 }
 
 /* ===== Modo escuro ===== */
@@ -38,4 +50,18 @@ body.dark-mode .btn-toggle-theme {
 body.dark-mode .btn-toggle-theme:hover {
   background-color: var(--primary-color);
   color: white;
+}
+
+
+
+.rotate-icon {
+  transition: transform 0.4s ease, opacity 0.3s ease;
+}
+
+.btn-toggle-theme:hover .rotate-icon {
+  transform: rotate(25deg);
+}
+
+.rotate-icon.ng-enter {
+  opacity: 0;
 }
