@@ -1,1 +1,29 @@
-/* You can add global styles to this file, and also import other style files */
+/* ===== Global styles.css ===== */
+:root {
+  --primary-color: #4c6ef5; /* Azul suave */
+  --accent-color: #f59f00; /* Laranja ameno */
+  --text-color: #333;
+  --bg-color: #f8f9fa;
+  --border-color: #dee2e6;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  background-color: var(--bg-color);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
