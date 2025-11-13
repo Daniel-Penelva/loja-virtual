@@ -10,6 +10,14 @@
   --header-bg: white;
   --menu-hover-bg: var(--primary-color);
   --menu-hover-text: white;
+
+  /* Footer (rodapé) - modo claro padrão */
+  --footer-bg: #f5f5f5;
+  --footer-text: #333;
+  --footer-title: #222;
+  --footer-link: #333;
+  --footer-link-hover: #0077ff;
+  --footer-border: #ddd;
 }
 
 /* ===== Reset básico ===== */
@@ -45,6 +53,14 @@ body.dark-mode {
   --header-bg: #2b2b3a;
   --menu-hover-bg: #495057;
   --menu-hover-text: var(--accent-color);
+
+  /* Footer (rodapé) - modo escuro */
+  --footer-bg: #1f1f1f;
+  --footer-text: #e5e5e5;
+  --footer-title: #ffffff;
+  --footer-link: #cccccc;
+  --footer-link-hover: #4da6ff;
+  --footer-border: #444;
 }
 
 body.dark-mode {
