@@ -1,0 +1,162 @@
+/* ==========================================================
+   ESTILOS DA PÁGINA HOME
+========================================================== */
+
+/* Container principal */
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  padding: 30px 20px;
+  animation: fadePage 0.8s ease forwards;
+}
+
+/* ================================
+   HERO (banner principal)
+================================ */
+.home__hero {
+  text-align: center;
+  padding: 60px 20px;
+  background: linear-gradient(135deg, #4b8bfd, #6a5af9);
+  color: white;
+  border-radius: 20px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+/* Título */
+.home__hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+  font-weight: 800;
+}
+
+.home__hero h1 span {
+  color: #ffdd57;
+}
+
+/* Subtítulo */
+.home__hero p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  margin-bottom: 25px;
+}
+
+/* Botão principal (call to action) */
+.btn-cta {
+  padding: 12px 28px;
+  background-color: #fff;
+  color: #4b4b4b;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.btn-cta:hover {
+  background-color: #efefef;
+  transform: translateY(-3px);
+}
+
+/* ================================
+   CATEGORIAS (cards)
+================================ */
+.home__categorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+}
+
+/* Card individual */
+.categoria-card {
+  background: white;
+  padding: 25px;
+  text-align: center;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+  opacity: 0;
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Ícones nos cards */
+.categoria-card i {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #4b8bfd;
+}
+
+/* Título dos cards */
+.categoria-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+/* Texto dos cards */
+.categoria-card p {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  color: #666;
+}
+
+/* Link do card */
+.categoria-card a {
+  text-decoration: none;
+  color: #4b8bfd;
+  font-weight: 600;
+}
+
+/* Hover nos cards */
+.categoria-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* ================================
+   ANIMAÇÕES
+================================ */
+@keyframes fadePage {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* delay automático para os cards aparecerem 1 por 1 */
+.categoria-card:nth-child(1) { animation-delay: 0.2s; }
+.categoria-card:nth-child(2) { animation-delay: 0.4s; }
+.categoria-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* ================================
+   MODO ESCURO
+================================ */
+body.dark-mode .home__hero {
+  background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+}
+
+body.dark-mode .categoria-card {
+  background: #2b2b2b;
+}
+
+body.dark-mode .categoria-card p {
+  color: #ccc;
+}
+
+body.dark-mode .btn-cta {
+  background: #333;
+  color: #ddd;
+}

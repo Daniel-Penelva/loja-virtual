@@ -53,7 +53,7 @@ ul {
 body.dark-mode {
   --primary-color: #91a7ff; /* Azul claro */
   --accent-color: #ffd43b; /* Amarelo suave */
-  --text-color: #f1f3f5;
+  --text-color: #666;
   --bg-color: #1e1e2e;
   --border-color: #343a40;
   --header-bg: #2b2b3a;
