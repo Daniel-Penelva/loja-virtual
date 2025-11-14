@@ -198,3 +198,93 @@
     transform: translateY(0); /* posição final */
   }
 }
+
+
+/* ======================================================
+   ANIMAÇÃO DOS ITENS INTERNOS -> fade-in + slide-up
+   - Cada item terá um delay diferente
+   - opacity: 0 -> começam invisíveis
+   - transform -> movimento inicial
+====================================================== */
+.fade-seq {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeSeq 0.8s ease forwards;
+}
+
+/* Keyframes para elementos internos */
+@keyframes fadeSeq {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* =====================================================
+   DELAYS PARA AS COLUNAS (container interno)
+   Cada coluna entra um pouco depois da anterior
+===================================================== */
+.footer__container > .footer__section:nth-child(1) {
+  animation-delay: 0.3s;
+}
+
+.footer__container > .footer__section:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+/* caso adicione mais colunas no futuro */
+.footer__container > .footer__section:nth-child(3) {
+  animation-delay: 0.7s;
+}
+
+
+/* =====================================================
+   TÍTULOS DAS COLUNAS
+   Entram após a coluna em si aparecer
+===================================================== */
+.footer__title {
+  animation-delay: 0.6s;
+}
+
+
+/* =====================================================
+   LINKS E ÍCONES INTERNOS
+   Cada <li> entra sequencialmente
+===================================================== */
+
+/* 1º item - Inicío */
+.footer__section ul li:nth-child(1) {
+  animation-delay: 0.7s;
+}
+
+/* 2º item - Produtos */
+.footer__section ul li:nth-child(2) {
+  animation-delay: 0.85s;
+}
+
+/* 3º item - Carrinho */
+.footer__section ul li:nth-child(3) {
+  animation-delay: 1s;
+}
+
+/* 4º item - Contato */
+.footer__section ul li:nth-child(4) {
+  animation-delay: 1.15s;
+}
+
+/* 5º item - Sobre */
+.footer__section ul li:nth-child(5) {
+  animation-delay: 1.30s;
+}
+
+/* =====================================================
+   COPYRIGHT — último item do footer a aparecer
+===================================================== */
+.footer__copyright {
+  animation-delay: 1.5s;
+}
