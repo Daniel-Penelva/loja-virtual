@@ -8,6 +8,9 @@
   margin-top: 3rem;
   border-top: 1px solid var(--footer-border);
   font-family: "Poppins", sans-serif;
+
+  opacity: 0; /* começa invisível */
+  animation: fadeIn 1.2s ease forwards; /* executa ao carregar */
 }
 
 /* Conteúdo */
@@ -173,5 +176,25 @@
 @media (min-width: 768px) {
   .footer__quick-links {
     margin-top: 0; /* Remove o espaçamento extra do mobile */
+  }
+}
+
+
+/* ================================
+   ANIMAÇÃO - FADE IN DO FOOTER
+   - animation: fadeIn 1s ease     -> executa a animação ao carregar
+   - opacity: 0                    -> começa invisível
+   - animation-fill-mode: forwards -> mantém a opacidade final (1)
+==================================*/
+
+/* Keyframes da animação fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* invisível */
+    transform: translateY(20px); /* leve deslocamento para baixo */
+  }
+  to {
+    opacity: 1; /* totalmente visível */
+    transform: translateY(0); /* posição final */
   }
 }
