@@ -1,0 +1,99 @@
+/* ==========================================================
+   ESTILOS DA PÁGINA SOBRE — MODERNO E RESPONSIVO
+   - Hero grande com gradiente
+   - Conteúdo limpo e com espaçamento
+   - Animação leve na entrada
+========================================================== */
+
+/* -----------------------------
+   Container principal da página
+----------------------------- */
+.sobre {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding: 40px 20px;
+  animation: fadePage 0.8s ease forwards; /* animação de entrada */
+}
+
+/* -----------------------------
+   HERO (seção superior)
+----------------------------- */
+.sobre__hero {
+  text-align: center;
+  padding: 60px 20px;
+
+  /* Gradiente moderno */
+  background: linear-gradient(135deg, #4b8bfd, #6a5af9);
+  border-radius: 20px;
+  color: white;
+
+  /* Sombra suave moderna */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Título principal */
+.sobre__titulo {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+/* Subtítulo */
+.sobre__subtitulo {
+  font-size: 1.2rem;
+  opacity: 0.9;
+}
+
+/* -----------------------------
+   Conteúdo abaixo do hero
+----------------------------- */
+.sobre__conteudo {
+  max-width: 900px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* Subtítulos internos */
+.sobre__conteudo h2 {
+  font-size: 1.6rem;
+  color: #444;
+}
+
+/* Parágrafos */
+.sobre__conteudo p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+}
+
+/* -----------------------------
+   Animação da página inteira
+----------------------------- */
+@keyframes fadePage {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* -----------------------------
+   MODO ESCURO — integração com dark-mode existente
+----------------------------- */
+body.dark-mode .sobre__conteudo h2 {
+  color: #eee;
+}
+
+body.dark-mode .sobre__conteudo p {
+  color: #ccc;
+}
+
+body.dark-mode .sobre__hero {
+  background: linear-gradient(135deg, #2a2a2a, #1f1f1f);
+}
