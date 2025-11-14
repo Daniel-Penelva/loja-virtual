@@ -17,6 +17,11 @@
   margin: auto;
 }
 
+/* === Força o address a ocupar apenas sua coluna === */
+.footer address {
+  display: block;
+}
+
 /* Título (Contato) */
 /* === Título do bloco === */
 .footer__title {
@@ -46,7 +51,7 @@
 .footer ul li a {
   text-decoration: none;
   color: var(--footer-link);
-  transition: 0.2s ease; /* Efeito suave */
+  transition: 0.25s ease; /* Efeito suave */
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -54,7 +59,7 @@
 
 .footer ul li a:hover {
   color: var(--footer-link-hover);
-  transform: translateX(3px); /* Pequena animação lateral */
+  transform: translateX(4px); /* Pequena animação lateral */
 }
 
 /* Icones */
@@ -62,6 +67,13 @@
 .footer i {
   font-size: 1.2rem;
   opacity: 0.8;
+  transition: 0.25s ease; /* Animação suave para a frente*/
+}
+
+/* === Ícone cresce ao hover === */
+.footer ul li a:hover i {
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 /* © Copyright */
@@ -70,7 +82,28 @@
   text-align: center;
   margin-top: 2rem;
   font-size: 0.9rem;
-  opacity: 0.7;
+  opacity: 0.75;
   border-top: 1px solid var(--footer-border);
   padding-top: 1rem;
+}
+
+/* Novo layout em duas colunas (somente PC e tablet) */
+/* === Melhor organização em telas maiores === */
+/* 
+  - Em telas acima de 768px, o footer fica em 2 colunas:
+    - Coluna 1: Contatos (address)
+    - Coluna 2: Espaço reservado para futuro conteúdo (social, links, etc)
+*/
+@media (min-width: 768px) {
+  .footer__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* === Duas colunas === */
+    gap: 2rem;
+  }
+}
+
+/* Ícones com efeito "glow" sutil no modo escuro */
+/* === No modo escuro, ícones ficam mais brilhantes no hover === */
+.dark-mode .footer ul li a:hover i {
+  filter: drop-shadow(0 0 4px rgba(255,255,255,0.35));
 }
