@@ -17,3 +17,13 @@
 </button>
 
 <app-footer></app-footer>
+
+<!-- ======================================================================
+     BOTÃO VOLTAR AO TOPO (VISÍVEL SOMENTE QUANDO ROLAR A PÁGINA)
+     ====================================================================== -->
+<button 
+  class="btn-back-to-top"
+  *ngIf="showBackToTop"
+  (click)="scrollToTop()">
+  <i class="fa-solid fa-arrow-up"></i>
+</button>

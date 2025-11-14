@@ -65,3 +65,71 @@ body.dark-mode .btn-toggle-theme:hover {
 .rotate-icon.ng-enter {
   opacity: 0;
 }
+
+
+/* ======================================================================
+   BOTÃO VOLTAR AO TOPO (FIXO NO CANTO INFERIOR DIREITO)
+   ====================================================================== */
+
+.btn-back-to-top {
+  position: fixed;
+  bottom: 24px;       /* Distância do fundo */
+  right: 24px;        /* Distância da direita */
+  width: 48px;
+  height: 48px;
+
+  /* Fundo e cor controlados pelas variáveis (modo claro/escuro) */
+  background: var(--backtop-bg);
+  color: var(--backtop-icon);
+
+  border: none;
+  border-radius: 50%; /* Formato redondo */
+
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Sombras suaves */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+
+  /* Animação de fade-in + leve deslize */
+  opacity: 0;
+  animation: fadeInBackTop 0.3s forwards ease-out;
+
+  z-index: 9999; /* Sempre acima dos outros elementos */
+
+  transition: 0.25s ease;
+}
+
+/* === Hover deixa mais claro/escuro e cresce suavemente === */
+.btn-back-to-top:hover {
+  background: var(--backtop-hover);
+  transform: scale(1.12);
+}
+
+/* === Ícone animado suavemente === */
+.btn-back-to-top i {
+  transition: 0.25s ease;
+}
+
+/* Animar ícone um pouco quando hover */
+.btn-back-to-top:hover i {
+  transform: translateY(-2px);
+}
+
+/* ======================================================================
+   ANIMAÇÃO — Fade-in + pequena subida
+   ====================================================================== */
+@keyframes fadeInBackTop {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
