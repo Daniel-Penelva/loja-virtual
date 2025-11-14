@@ -107,3 +107,71 @@
 .dark-mode .footer ul li a:hover i {
   filter: drop-shadow(0 0 4px rgba(255,255,255,0.35));
 }
+
+
+/* ============================================================
+   NOVA COLUNA — LINKS RÁPIDOS
+   Estilo muito semelhante ao bloco de Contato para manter
+   harmonia visual e identidade única do footer.
+   ============================================================ */
+
+.footer__quick-links {
+  margin-top: 2rem; /* Espaço acima em telas pequenas */
+}
+
+/* Título segue o mesmo estilo do bloco Contato */
+.footer__quick-links .footer__title {
+  margin-bottom: 1rem;
+}
+
+/* Estilização da lista */
+.footer__quick-links ul {
+  list-style: none;       /* Remove bolinhas da UL */
+  margin: 0;
+  padding: 0;
+}
+
+.footer__quick-links li {
+  margin: 0.6rem 0;       /* Espaço entre cada item */
+  display: flex;
+  align-items: center;
+}
+
+/* Links rápidos — mesmos efeitos dos links de contato */
+.footer__quick-links a {
+  text-decoration: none;  
+  color: var(--footer-link);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;                /* Espaço entre ícone e texto */
+  transition: 0.25s ease;  /* Animação suave */
+}
+
+/* Hover elegante */
+.footer__quick-links a:hover {
+  color: var(--footer-link-hover);
+  transform: translateX(4px); /* Move para direita suavemente */
+}
+
+/* Ícones dos links rápidos */
+.footer__quick-links i {
+  font-size: 1.1rem;
+  opacity: 0.8;
+  transition: 0.25s ease;
+}
+
+/* Ícone brilha levemente no hover */
+.footer__quick-links a:hover i {
+  transform: scale(1.12);
+  opacity: 1;
+}
+
+/* ============================================================
+   Layout de duas colunas no desktop (já existia no CSS anterior)
+   Aqui só garante que os Links Rápidos participem corretamente.
+   ============================================================ */
+@media (min-width: 768px) {
+  .footer__quick-links {
+    margin-top: 0; /* Remove o espaçamento extra do mobile */
+  }
+}
