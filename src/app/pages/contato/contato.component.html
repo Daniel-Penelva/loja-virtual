@@ -1,0 +1,42 @@
+<div class="contato-container fade-in">
+    <h2>Contato</h2>
+    <p>Entre em contato com a TechMania</p>
+
+    <!-- =============================================
+       MENSAGEM DE SUCESSO (aparece após enviar)
+       ============================================= -->
+    <div class="msg-sucesso fade-msg" *ngIf="mensagemEnviada">
+        <i class="fa-solid fa-circle-check"></i>
+        Sua mensagem foi enviada com sucesso!
+    </div>
+
+    <form [formGroup]="contatoForm" (ngSubmit)="enviar()">
+        <!-- Nome -->
+        <label>Nome</label>
+        <input type="text" formControlName="nome" placeholder="Seu nome" />
+
+        <div class="erro" *ngIf="contatoForm.get('nome')?.touched && contatoForm.get('nome')?.invalid">
+            O nome é obrigatório e deve ter pelo menos 3 caracteres.
+        </div>
+
+        <!-- Email -->
+        <label>Email</label>
+        <input type="email" formControlName="email" placeholder="seu@email.com" />
+
+        <div class="erro" *ngIf="contatoForm.get('email')?.touched && contatoForm.get('email')?.invalid">
+            Informe um e-mail válido.
+        </div>
+
+        <!-- Mensagem -->
+        <label>Mensagem</label>
+        <textarea formControlName="mensagem" rows="5" placeholder="Sua mensagem"></textarea>
+
+        <div class="erro" *ngIf="contatoForm.get('mensagem')?.touched && contatoForm.get('mensagem')?.invalid">
+            A mensagem deve ter pelo menos 10 caracteres.
+        </div>
+
+        <!-- Botão -->
+        <button type="submit" class="btn-enviar">Enviar</button>
+
+    </form>
+</div>

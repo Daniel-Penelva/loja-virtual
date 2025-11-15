@@ -1,0 +1,127 @@
+
+/* ------------------------------------------------------
+   Container geral da página
+------------------------------------------------------ */
+.contato-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 25px;
+  border-radius: 12px;
+  background: var(--card-bg, #fff);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);  /* Sombra da a sensação que está em primeiro plano */ 
+}
+
+/* Animação geral da página (Fade-in) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(15px);
+  animation: fadeIn 0.6s forwards ease-out;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  margin-bottom: 5px;
+  font-size: 28px;
+}
+
+p {
+  margin-bottom: 25px;
+  opacity: 0.8;
+}
+
+
+/* ------------------------------------------------------
+   Inputs
+------------------------------------------------------ */
+label {
+  font-weight: bold;
+  margin-top: 10px;
+  display: block;  /* alinha os labels um abaixo do outro */
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #0077ff;
+  outline: none;
+}
+
+
+/* ------------------------------------------------------
+   Mensagens de erro
+------------------------------------------------------ */
+.erro {
+  color: red;
+  font-size: 14px;
+  margin-top: 3px;
+}
+
+
+/* ------------------------------------------------------
+   Botão de enviar
+------------------------------------------------------ */
+.btn-enviar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background: #0077ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-enviar:hover {
+  background: #0057c7;
+}
+
+
+/* ------------------------------------------------------
+   Mensagem de sucesso
+------------------------------------------------------ */
+.msg-sucesso {
+  background: #d4f8d4;
+  border-left: 5px solid #25b325;
+  padding: 12px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Ícone verde */
+.msg-sucesso i {
+  font-size: 20px;
+  color: #1a8c1a;
+}
+
+/* Animação de fade-in da mensagem */
+.fade-msg {
+  opacity: 0;
+  animation: fadeInMsg 0.5s forwards ease-out;
+}
+
+@keyframes fadeInMsg {
+  to {
+    opacity: 1;
+  }
+}
