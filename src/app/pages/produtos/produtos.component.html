@@ -2,33 +2,58 @@
      LISTA DE PRODUTOS
      - Grid responsivo
      - Cada card possui hover animado
+     (AGORA PAGINADOS)
      ====================================================== -->
 <section class="product-list">
-  <div class="product-list__card fade-seq" *ngFor="let produto of produtos">
-    <!-- Card clicável -->
-    <a routerLink="/produtos/{{ produto.id }}" class="product-list__link">
+  <div class="product-list__card"
+       *ngFor="let produto of produtosPaginados">
 
-      <!-- Imagem -->
-      <img [src]="produto.imagem" [alt]="produto.descricao" />
+    <a class="product-list__link">
+      <img [src]="produto.imagem" />
 
-      <!-- Nome do produto -->
       <h2 class="product-item__name">{{ produto.descricao }}</h2>
 
-      <!-- Preço -->
       <p class="product-item__price">
-        {{ produto.preco | currency : "BRL" }}
+        R$ {{ produto.preco | currency : "BRL" }}
       </p>
 
-      <!-- Texto tipo "À vista no PIX" -->
       <p class="product-item__price-description">
         {{ produto.descricaoPreco }}
       </p>
 
-      <!-- Botão comprar -->
-      <button type="button" class="product-item__buy-button">
-        <i class="fa-solid fa-cart-plus"></i> Comprar
+      <button type="button"
+              class="product-item__buy-button">
+        Comprar
       </button>
-
     </a>
   </div>
 </section>
+
+<!-- ============================================================
+     PAGINAÇÃO
+     ============================================================ -->
+<div class="pagination">
+
+  <!-- Botão anterior -->
+  <button class="pagination__btn"
+          [disabled]="paginaAtual === 1"
+          (click)="paginaAnterior()">
+    « Anterior
+  </button>
+
+  <!-- Botões numerados (1, 2, 3...) -->
+  <button class="pagination__number"
+          *ngFor="let p of [].constructor(totalPaginas); let i = index"
+          [class.active]="paginaAtual === (i+1)"
+          (click)="irParaPagina(i+1)">
+    {{ i + 1 }}
+  </button>
+
+  <!-- Botão próximo -->
+  <button class="pagination__btn"
+          [disabled]="paginaAtual === totalPaginas"
+          (click)="proximaPagina()">
+    Próxima »
+  </button>
+
+</div>

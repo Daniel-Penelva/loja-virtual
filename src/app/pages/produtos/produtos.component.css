@@ -131,3 +131,50 @@
     transform: translateY(0);
   }
 }
+
+/* ============================================================
+   PAGINAÇÃO - CONTAINER
+   ============================================================ */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 30px 0;
+}
+
+/* ============================================================
+   BOTÕES DE PAGINAÇÃO
+   ============================================================ */
+.pagination__btn,
+.pagination__number {
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+/* Hover geral */
+.pagination__btn:hover,
+.pagination__number:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Quando estiver desabilitado */
+.pagination__btn[disabled] {
+  background: #888;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ============================================================
+   PÁGINA ATIVA (BOTÃO NUMERADO)
+   ============================================================ */
+.pagination__number.active {
+  background: var(--accent-color);
+  font-weight: bold;
+  transform: scale(1.1);
+}
