@@ -1,0 +1,34 @@
+<!-- ======================================================
+     LISTA DE PRODUTOS
+     - Grid responsivo
+     - Cada card possui hover animado
+     ====================================================== -->
+<section class="product-list">
+  <div class="product-list__card fade-seq" *ngFor="let produto of produtos">
+    <!-- Card clicável -->
+    <a routerLink="/produtos/{{ produto.id }}" class="product-list__link">
+
+      <!-- Imagem -->
+      <img [src]="produto.imagem" [alt]="produto.descricao" />
+
+      <!-- Nome do produto -->
+      <h2 class="product-item__name">{{ produto.descricao }}</h2>
+
+      <!-- Preço -->
+      <p class="product-item__price">
+        {{ produto.preco | currency : "BRL" }}
+      </p>
+
+      <!-- Texto tipo "À vista no PIX" -->
+      <p class="product-item__price-description">
+        {{ produto.descricaoPreco }}
+      </p>
+
+      <!-- Botão comprar -->
+      <button type="button" class="product-item__buy-button">
+        <i class="fa-solid fa-cart-plus"></i> Comprar
+      </button>
+
+    </a>
+  </div>
+</section>
