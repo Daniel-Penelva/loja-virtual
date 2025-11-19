@@ -178,3 +178,22 @@
   font-weight: bold;
   transform: scale(1.1);
 }
+
+
+/* ============================================================
+   CONTADOR "EXIBINDO X–Y DE Z"
+   ============================================================ */
+
+.item-product__counter {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.product-counter {
+  font-size: 14px;
+  margin-bottom: 15px;
+  color: var(--text-color); /* usa variável de modo claro/escuro */
+  opacity: 0.8;             /* deixa visual mais discreto */
+}

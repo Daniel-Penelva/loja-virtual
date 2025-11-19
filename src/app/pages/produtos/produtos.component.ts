@@ -84,4 +84,16 @@ export class ProdutosComponent {
     this.paginaAtual = pagina;
   }
 
+  // ============================================================
+  // PAGINAÇÃO + CONTADOR "EXIBINDO X–Y de Z"
+  // ============================================================
+  get inicioExibicao(): number {
+    return (this.paginaAtual - 1) * this.itensPorPagina + 1; // Calcula o primeiro item da página atual (ex.: página 2 -> começa no 7)
+  }
+
+  get fimExibicao(): number {
+    const ultimo = this.paginaAtual * this.itensPorPagina;  // Calcula o último item da página atual (LIMITADO ao total de produtos)
+    return ultimo > this.produtos.length ? this.produtos.length : ultimo;
+  }
+
 }

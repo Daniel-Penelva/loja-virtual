@@ -1,3 +1,4 @@
+
 <!-- ======================================================
      LISTA DE PRODUTOS
      - Grid responsivo
@@ -56,5 +57,14 @@
           (click)="proximaPagina()">
     Próxima »
   </button>
+</div>
 
+<div class="item-product__counter">
+  <!-- ============================================================
+      CONTADOR DE PRODUTOS — "Exibindo X–Y de Z"
+      ============================================================ -->
+  <p class="product-counter">
+    Exibindo {{ inicioExibicao }}–{{ fimExibicao }}
+    de {{ produtos.length }} produtos
+  </p>
 </div>
