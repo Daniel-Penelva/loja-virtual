@@ -199,41 +199,122 @@
 }
 
 
-/* ============================================================
+/* ============================================================ Exemplo 1
    LOADING CONTAINER — Centraliza barra e texto
-   ============================================================ */
+   ============================================================ 
 .loading-container {
   width: 100%;
   text-align: center;
   margin-top: 40px;
 }
 
-/* ============================================================
+ ============================================================
    LOADING BAR — Barra horizontal animada
-   ============================================================ */
+   ============================================================ 
 .loading-bar {
-  width: 0%;              /* começa vazia */
+  width: 0%;              /comentario começa vazia/
   height: 6px;
   margin: 0 auto;
   border-radius: 10px;
   background: var(--primary-color);
 
-  /* Animação da barra preenchendo */
+  / comentario: Animação da barra preenchendo /
   animation: loadingProgress 2s ease-out forwards;
 }
 
-/* Texto abaixo da barra */
+/ comentario Texto abaixo da barra/
 .loading-text {
   margin-top: 10px;
   color: var(--text-color);
   font-size: 1rem;
 }
 
-/* ============================================================
+============================================================
    ANIMAÇÃO DA BARRA DE PROGRESSO
-   ============================================================ */
+   ============================================================
 @keyframes loadingProgress {
   0%   { width: 0%; }
   50%  { width: 60%; }
   100% { width: 100%; }
+}
+
+============================================================ */
+
+/* ============================================================ Exemplo 2
+   SKELETON CARD — Estrutura do card vazio
+   ============================================================ */
+.skeleton-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 4px 4px 14px var(--shadow-1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ============================================================
+   PARTES INDIVIDUAIS DO SKELETON
+   ============================================================ */
+
+/* Imagem simulada */
+.skeleton-img {
+  width: 100%;
+  height: 170px;
+  border-radius: 12px;
+  background: var(--skeleton-bg);
+}
+
+/* Linhas simuladas (título + texto) */
+.skeleton-line {
+  height: 16px;
+  border-radius: 8px;
+  background: var(--skeleton-bg);
+}
+
+/* Linha menor */
+.skeleton-line.short {
+  width: 60%;
+}
+
+/* Botão simulado */
+.skeleton-button {
+  width: 100%;
+  height: 35px;
+  border-radius: 10px;
+  background: var(--skeleton-bg);
+}
+
+/* ============================================================
+   SHIMMER EFFECT — animação do brilho
+   ============================================================ */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Camada do brilho */
+.shimmer::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+
+  /* gradiente que percorre o skeleton */
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+
+  animation: shimmerMove 1.2s infinite;
+}
+
+/* Movimento do brilho */
+@keyframes shimmerMove {
+  0%   { left: -100%; }
+  100% { left: 100%; }
 }

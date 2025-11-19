@@ -1,10 +1,22 @@
 
-<!-- ================= LOADING BAR (PROGRESS) - BARRA DE CARREGAMENTO ================= -->
+<!-- Exemplo 1 ================= LOADING BAR (PROGRESS) - BARRA DE CARREGAMENTO ================= 
 <div class="loading-container" *ngIf="isLoading">
   <div class="loading-bar"></div>
   <p class="loading-text">Carregando produtos...</p>
 </div>
+-->
 
+<!-- Exemplo 2 =======================================================
+     SKELETON LOADING (Shimmer)
+     ======================================================= -->
+<section class="product-list" *ngIf="isLoading">
+  <div class="skeleton-card" *ngFor="let s of [].constructor(itensPorPagina)">
+    <div class="skeleton-img shimmer"></div>
+    <div class="skeleton-line shimmer"></div>
+    <div class="skeleton-line short shimmer"></div>
+    <div class="skeleton-button shimmer"></div>
+  </div>
+</section>
 
 <!-- ======================================================
      LISTA DE PRODUTOS
@@ -13,7 +25,7 @@
      (AGORA PAGINADOS)
      Apenas adiciona o atributo [@listaAnimada] para ativar a animação
      ====================================================== -->
-<section class="product-list" @listaAnimada>
+<section class="product-list" *ngIf="!isLoading" @listaAnimada>
   <div class="product-list__card"
        *ngFor="let produto of produtosPaginados">
 

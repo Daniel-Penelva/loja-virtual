@@ -24,6 +24,9 @@
   --backtop-bg: #333;
   --backtop-icon: #fff;
   --backtop-hover: #000;
+
+  /* VARIÁVEIS PARA O SKELETON (modo claro) */
+  --skeleton-bg: #e6e6e6;
 }
 
 /* ===== Reset básico ===== */
@@ -72,6 +75,9 @@ body.dark-mode {
   --backtop-bg: #ddd;
   --backtop-icon: #111;
   --backtop-hover: #fff;
+
+  /* VARIÁVEIS PARA O SKELETON (modo escuro) */
+  --skeleton-bg: #3a3a3a;
 }
 
 body.dark-mode {
