@@ -19,7 +19,7 @@
   overflow: hidden;
   background: var(--card-bg);
   box-shadow: 4px 2px 10px var(--shadow-1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease; /* Deixar as transições de hover do card mais suaves */
 }
 
 /* Hover do card */

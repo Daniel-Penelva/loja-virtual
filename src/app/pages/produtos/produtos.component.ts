@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { IProduto, lista_produtos } from '../../model/produtos';
 import { RouterLink } from "@angular/router";
+import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
 
 
 @Component({
@@ -9,7 +10,29 @@ import { RouterLink } from "@angular/router";
   standalone: true,
   imports: [CommonModule, RouterLink],
   templateUrl: './produtos.component.html',
-  styleUrl: './produtos.component.css'
+  styleUrl: './produtos.component.css',
+
+  // ============================================================
+  // ANIMAÇÕES
+  // ============================================================
+  animations: [
+     // ANIMAÇÃO QUANDO A LISTA DE PRODUTOS TROCA DE PÁGINA
+     trigger('listaAnimada', [
+      // :enter -> quando os elementos aparecem
+      transition(':enter', [
+        // Seleciona cada card .product-list__card
+        query('.product-list__card', [
+          // Começo da animação (opacity 0 e um leve deslocamento)
+          style({ opacity: 0, transform: 'translateY(20px)' }), 
+
+          // Intervalo entre um card e outro (efeito cascata)
+          stagger(80, [
+            animate('400ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true})
+      ])
+     ])
+  ]
 })
 export class ProdutosComponent {
 
@@ -17,7 +40,7 @@ export class ProdutosComponent {
 
   // Paginação
   paginaAtual: number = 1;    // Página Incial
-  itensPorPagina: number = 8; // Total de produtos por página
+  itensPorPagina: number = 4; // Total de produtos por página
 
 
   // ------------------------------------------

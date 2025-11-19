@@ -3,8 +3,9 @@
      - Grid responsivo
      - Cada card possui hover animado
      (AGORA PAGINADOS)
+     Apenas adiciona o atributo [@listaAnimada] para ativar a animação
      ====================================================== -->
-<section class="product-list">
+<section class="product-list" @listaAnimada>
   <div class="product-list__card"
        *ngFor="let produto of produtosPaginados">
 
