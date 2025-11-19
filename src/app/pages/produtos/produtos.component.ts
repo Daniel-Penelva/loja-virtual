@@ -42,6 +42,21 @@ export class ProdutosComponent {
   paginaAtual: number = 1;    // Página Incial
   itensPorPagina: number = 4; // Total de produtos por página
 
+  // Barra de carregamento
+  isLoading: boolean = true; // Variável de controle do loading
+
+
+  // ------------------------------------------
+  // Simula atraso do carregamento (2 segundos)
+  // Pode ser substituído por requisição HTTP
+  // ------------------------------------------
+  constructor() {
+    setTimeout(() => {
+      this.produtos = lista_produtos;
+      this.isLoading = false;
+    }, 2000);
+  }
+
 
   // ------------------------------------------
   // QUANTIDADE TOTAL DE PÁGINAS

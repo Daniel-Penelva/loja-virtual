@@ -197,3 +197,43 @@
   color: var(--text-color); /* usa variável de modo claro/escuro */
   opacity: 0.8;             /* deixa visual mais discreto */
 }
+
+
+/* ============================================================
+   LOADING CONTAINER — Centraliza barra e texto
+   ============================================================ */
+.loading-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+}
+
+/* ============================================================
+   LOADING BAR — Barra horizontal animada
+   ============================================================ */
+.loading-bar {
+  width: 0%;              /* começa vazia */
+  height: 6px;
+  margin: 0 auto;
+  border-radius: 10px;
+  background: var(--primary-color);
+
+  /* Animação da barra preenchendo */
+  animation: loadingProgress 2s ease-out forwards;
+}
+
+/* Texto abaixo da barra */
+.loading-text {
+  margin-top: 10px;
+  color: var(--text-color);
+  font-size: 1rem;
+}
+
+/* ============================================================
+   ANIMAÇÃO DA BARRA DE PROGRESSO
+   ============================================================ */
+@keyframes loadingProgress {
+  0%   { width: 0%; }
+  50%  { width: 60%; }
+  100% { width: 100%; }
+}
