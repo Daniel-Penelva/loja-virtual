@@ -29,13 +29,13 @@
   <div class="product-list__card"
        *ngFor="let produto of produtosPaginados">
 
-    <a class="product-list__link">
+    <a [routerLink]="['/produtos', produto.id]" class="product-list__link">
       <img [src]="produto.imagem" />
 
       <h2 class="product-item__name">{{ produto.descricao }}</h2>
 
       <p class="product-item__price">
-        R$ {{ produto.preco | currency : "BRL" }}
+        {{ produto.preco | currency : "BRL" }}
       </p>
 
       <p class="product-item__price-description">

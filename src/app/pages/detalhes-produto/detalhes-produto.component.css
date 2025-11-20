@@ -1,0 +1,171 @@
+/* ============================
+   Layout geral
+============================ */
+.product__container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+
+  animation: fadeSlideIn 0.8s ease forwards; /* Animação de entrada */
+}
+
+/* --------------------------------------------------
+    ANIMAÇÃO DE ENTRADA (fade + slide up)
+   -------------------------------------------------- */
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* ============================
+   Imagem do produto
+============================ */
+.product-image__container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.product-image__container img {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.12);
+}
+
+/* ============================
+   Descrição do produto
+============================ */
+.product-description__container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.product__name {
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 5px;
+}
+
+.product__price {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2b8a3e;
+  margin-bottom: 15px;
+}
+
+/* Quantidade */
+.product-description__container label {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-description__container input[type="number"] {
+  width: 70px;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+}
+
+/* Disponibilidade */
+.product_avaiability {
+  font-size: 15px;
+  color: #555;
+}
+
+
+/* ============================
+   Botão principal
+============================ */
+.product-description__container button {
+  margin-top: 15px;
+  padding: 14px 20px;
+
+  background: #007bff;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: background 0.3s;
+}
+
+.product-description__container button:hover {
+  background: #0056b3;
+}
+
+
+/* ============================
+   Animação suave de flutuar na Imagem
+============================ */
+@keyframes floatImage {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+.product-image__container img {
+  width: 350px;
+  max-width: 100%;
+  animation: floatImage 4s ease-in-out infinite;
+  
+  /* Smooth transition for effects */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+  border-radius: 15px;
+}
+
+
+/* --------------------------------------------------
+    SOMBRA DINÂMICA NO HOVER
+   -------------------------------------------------- */
+.product-image__container img:hover {
+  transform: scale(1.03) translateY(-5px); /* zoom leve + sobe */
+  box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+}
+
+
+/* ============================
+   Responsividade
+============================ */
+@media (max-width: 820px) {
+  .product__container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .product-description__container {
+    align-items: center;
+  }
+
+  .product-description__container label {
+    justify-content: center;
+  }
+}
+
+
