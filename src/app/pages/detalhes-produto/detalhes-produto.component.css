@@ -169,3 +169,26 @@
 }
 
 
+/* ============================
+   Mensagem de erro da quantidade de estoque
+============================ */
+.erro-estoque {
+  color: #ff4040;
+  font-size: small;
+  font-weight: bold;
+  margin-top: 5px;
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+
+

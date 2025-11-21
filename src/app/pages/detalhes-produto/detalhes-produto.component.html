@@ -1,18 +1,24 @@
 <section class="product__container">
     <div class="product-image__container">
-        <img src="../../..../../../assets/img/mouse-3.jpg" alt="item-produto">
+        <img [src]="produto?.imagem">
     </div>
     <div class="product-description__container">
-        <h2 class="product__name">Mouser Gamer</h2>
-        <h3 class="product__price">R$439.00</h3>
+        <h2 class="product__name">{{ produto?.descricao }}</h2>
+        <h3 class="product__price">{{ produto?.preco | currency : "BRL"}}</h3>
         <p>Estoque disponível:</p>
         <label>
             Quantidade:
-            <input type="number">
+            <input type="number" [(ngModel)] = "quantidade" min="1" max="produto?.quantidadeEstoque" (input)="validarQuantidade()">
             unidade(s)
         </label>
+
+        <!-- MENSAGEM DE ERRO -->
+        <p class="erro-estoque" *ngIf="quantidadeInvalida">
+            <i class="fa-solid fa-x"></i> A quantidade escolhida excede o estoque disponível ({{ produto?.quantidadeEstoque }} unidades).
+        </p>
+
         <p class="product_avaiability">
-            10 unidade(s) em estoque
+            {{ produto?.quantidadeEstoque }} unidade(s) em estoque
         </p>
         <button>Adicionar ao carrinho</button>
     </div>
