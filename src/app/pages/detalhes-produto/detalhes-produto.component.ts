@@ -4,13 +4,13 @@ import { IProduto } from '../../model/produtos';
 import { ProdutosService } from '../../services/produtos.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { NotificacaoService } from '../../services/notificacao.service';
 
 
 @Component({
   selector: 'app-detalhes-produto',
   standalone: true,
-  imports: [CommonModule, FormsModule, MatSnackBarModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './detalhes-produto.component.html',
   styleUrl: './detalhes-produto.component.css',
 })
@@ -23,9 +23,7 @@ export class DetalhesProdutoComponent {
 
   quantidadeInvalida: boolean = false;
 
-  testAngularMaterial: string = "add no carrinho";
-
-  constructor(private route: ActivatedRoute, private produtoService: ProdutosService, private snackBar: MatSnackBar) {}
+  constructor(private route: ActivatedRoute, private produtoService: ProdutosService, private notificacaoService: NotificacaoService) {}
 
   ngOnInit(): void {
     // testando no console
@@ -49,8 +47,7 @@ export class DetalhesProdutoComponent {
   }
 
   addCarrinho() {
-    console.log(this.testAngularMaterial);
-    this.snackBar.open('Add no carrinho com sucesso', 'Fechar', { duration: 5000 });
+    this.notificacaoService.notificar("Add produto com sucesso!");
   }
 
 }
