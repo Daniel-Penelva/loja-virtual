@@ -119,6 +119,50 @@
   background: #0056b3;
 }
 
+/* Botão ir ao carrinho */
+.product-description__container .cart-button {
+  margin-top: 15px;
+  padding: 14px 20px;
+
+  background: #ffc107;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: background 0.3s;
+}
+
+.product-description__container .cart-button:hover {
+  background: #f59f00;
+}
+
+/* Botão voltar ao produto */
+.product-description__container .buy-button {
+  margin-top: 15px;
+  padding: 14px 20px;
+
+  background: #28a745;
+  color: white;
+
+  border: none;
+  border-radius: 8px;
+
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+
+  transition: background 0.3s;
+}
+
+.product-description__container .buy-button:hover {
+  background: #218838;
+}
+
 
 /* ============================
    Animação suave de flutuar na Imagem

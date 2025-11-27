@@ -5,6 +5,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PaginaNaoEncontradaComponent } from './pages/pagina-nao-encontrada/pagina-nao-encontrada.component';
 import { ProdutosComponent } from './pages/produtos/produtos.component';
 import { SobreComponent } from './pages/sobre/sobre.component';
+import { CarrinhoComponent } from './pages/carrinho/carrinho.component';
 
 export const routes: Routes = [
     { path: 'sobre', component: SobreComponent },
@@ -12,6 +13,7 @@ export const routes: Routes = [
     { path: 'contato', component: ContatoComponent}, 
     { path: 'produtos', component: ProdutosComponent},
     { path: 'produtos/:id', component: DetalhesProdutoComponent},
+    { path: 'carrinho', component: CarrinhoComponent },
     { path: '', redirectTo: 'home', pathMatch: 'full' }, // rota padrão
     { path: '**', component: PaginaNaoEncontradaComponent }, // caso entra em algo inválido - rota 404
 ];

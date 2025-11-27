@@ -1,16 +1,17 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { IProduto } from '../../model/produtos';
+import { ActivatedRoute, RouterLink } from '@angular/router';
+import { IProduto, IProdutoCarrinho } from '../../model/produtos';
 import { ProdutosService } from '../../services/produtos.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { NotificacaoService } from '../../services/notificacao.service';
+import { CarrinhoService } from '../../services/carrinho.service';
 
 
 @Component({
   selector: 'app-detalhes-produto',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './detalhes-produto.component.html',
   styleUrl: './detalhes-produto.component.css',
 })
@@ -23,7 +24,11 @@ export class DetalhesProdutoComponent {
 
   quantidadeInvalida: boolean = false;
 
-  constructor(private route: ActivatedRoute, private produtoService: ProdutosService, private notificacaoService: NotificacaoService) {}
+  constructor(
+    private route: ActivatedRoute, 
+    private produtoService: ProdutosService, 
+    private notificacaoService: NotificacaoService,
+    private carrinhoService: CarrinhoService) {}
 
   ngOnInit(): void {
     // testando no console
@@ -47,7 +52,9 @@ export class DetalhesProdutoComponent {
   }
 
   addCarrinho() {
-    this.notificacaoService.notificar("Add produto com sucesso!");
+    const produto: IProdutoCarrinho = { ...this.produto!, quantidadeCarrinho: this.quantidade} 
+    this.carrinhoService.adicionarCarrinho(produto);
+    this.notificacaoService.notificar("Carrinho adicionado com Sucesso!");
   }
 
 }

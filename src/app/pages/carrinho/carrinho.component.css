@@ -1,0 +1,247 @@
+/* Título */
+.cart-title {
+  text-align: center;
+  font-size: 2rem;
+  padding-top: 10px;
+  margin-bottom: 10px;
+  font-weight: bold;
+  color: #666;
+}
+
+/* Container principal */
+.cart-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Lista */
+.cart-container ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ITEM DO CARRINHO */
+.cart-container li {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  background: #fff;
+  padding: 15px 20px;
+  margin-bottom: 16px;
+
+  border-radius: 12px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+/* efeito hover */
+.cart-container li:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* imagem do item */
+.cart-container img {
+  width: 120px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+
+  transition: transform 0.3s ease;
+}
+
+.cart-container li:hover img {
+  transform: scale(1.05);
+}
+
+.cart-container p { 
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #444;
+  margin-right: 10px;
+}
+
+/* label + input */
+.text-label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.9rem;
+  color: #444;
+  margin-right: 10px;
+}
+
+.text-label input {
+  margin-top: 6px;
+  padding: 6px;
+  width: 70px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.text-label input:focus {
+  border-color: #007bff;
+}
+
+
+/* Botão remover (X) */
+.remove-button {
+  border: none;
+  background: #ff4b4b;
+  color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.2rem;
+
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.remove-button:hover {
+  background: #d93434;
+  transform: scale(1.1);
+}
+
+/* TOTAL */
+.cart-total {
+  text-align: right;
+  font-size: 1.6rem;
+  font-weight: bold;
+  margin-top: 20px;
+  color: #666;
+}
+
+/* Botão comprar */
+.buy-button {
+  margin-top: 20px;
+  width: 100%;
+  padding: 14px;
+
+  background: #28a745;
+  color: white;
+  border: none;
+
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.buy-button:hover {
+  background: #218838;
+  transform: scale(1.02);
+}
+
+/* Botão Limpar Carrinho */
+.clear-cart-button {
+  margin-top: 10px;
+  width: 100%;
+  padding: 14px;
+
+  background: #ffc107;
+  color: white;
+  border: none;
+
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.clear-cart-button:hover {
+  background: #f59f00;
+  transform: scale(1.02);
+}
+
+/* ===============================
+    Aviso para carrinho vazio 
+  ================================
+*/
+
+/* Container do aviso */
+.empty-cart {
+  margin: 50px auto;
+  padding: 40px 20px;
+  max-width: 400px;
+
+  background: #fff;
+  border-radius: 16px;
+  text-align: center;
+
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+
+  animation: fadeSlide 0.5s ease;
+}
+
+/* Ícone */
+.empty-cart i {
+  font-size: 3.5rem;
+  color: #777;
+  opacity: 0.8;
+}
+
+/* Texto principal */
+.empty-cart p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Subtexto */
+.empty-cart span {
+  font-size: 1rem;
+  color: #666;
+}
+
+/* Animação de entrada */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Responsividade */
+@media (max-width: 680px) {
+  .cart-container li {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .text-label {
+    align-items: center;
+  }
+
+  .cart-total {
+    text-align: center;
+  }
+}

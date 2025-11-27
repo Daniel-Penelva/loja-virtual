@@ -13,7 +13,7 @@
           <a routerLink="/produtos"><i class="fa-brands fa-product-hunt"></i>Produtos</a>
         </li>
         <li>
-          <a><i class="fa-solid fa-cart-plus"></i><span class="badge-carrinho">0</span>Carrinho</a>
+          <a routerLink="/carrinho"><i class="fa-solid fa-cart-plus"></i><span class="badge-carrinho">{{ carrinhoService.obtemCarrinho().length }}</span>Carrinho</a>
         </li>
         <li>
           <a routerLink="/contato"><i class="fa-solid fa-address-card"></i>Contato</a>
