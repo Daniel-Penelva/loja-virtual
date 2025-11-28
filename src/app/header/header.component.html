@@ -26,7 +26,12 @@
       </ul>
     </nav>
     <form class="search-form">
-      <input type="text" />
+      <input 
+        type="text" 
+        placeholder="Buscar Produtos..." 
+        [(ngModel)] = "termo"
+        (ngModelChange)="onBuscar($event)" 
+        name="search"/>
       <button><i class="fa-solid fa-magnifying-glass"></i></button>
     </form>
   </div>

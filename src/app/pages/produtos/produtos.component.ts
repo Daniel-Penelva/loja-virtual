@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import { IProduto, lista_produtos } from '../../model/produtos';
 import { RouterLink } from "@angular/router";
 import { animate, query, stagger, style, transition, trigger } from '@angular/animations';
+import { ProdutosService } from '../../services/produtos.service';
 
 
 @Component({
@@ -45,16 +46,28 @@ export class ProdutosComponent {
   // Barra de carregamento
   isLoading: boolean = true; // Variável de controle do loading
 
+  termoBusca: string = ''; // Termo de busca (inicialmente vazio)
+
 
   // ------------------------------------------
   // Simula atraso do carregamento (2 segundos)
   // Pode ser substituído por requisição HTTP
   // ------------------------------------------
-  constructor() {
+  constructor(private produtosService: ProdutosService) {
     setTimeout(() => {
       this.produtos = lista_produtos;
       this.isLoading = false;
     }, 2000);
+  }
+
+  ngOnInit(): void {
+    this.produtos = this.produtosService.getAll();
+    
+    // Inscreve-se no Observable do termo de busca para atualizar a lista de produtos conforme o usuário  digita
+    this.produtosService.termoBusca$.subscribe(termo => {
+      this.termoBusca = termo;
+      this.paginaAtual = 1; // Reseta para a primeira página ao buscar um novo termo.
+    });
   }
 
 
@@ -66,12 +79,12 @@ export class ProdutosComponent {
   }
 
   // ------------------------------------------
-  // PRODUTOS QUE SERÃO EXIBIDOS NA PÁGINA ATUAL
+  // PRODUTOS QUE SERÃO EXIBIDOS NA PÁGINA ATUAL. ALÉM DISSO, USA produtosFiltrados PARA PAGINAÇÃO APÓS A BUSCA.
   // ------------------------------------------
   get produtosPaginados(): IProduto[] {
     const inicio = (this.paginaAtual - 1) * this.itensPorPagina;
     const fim = inicio + this.itensPorPagina;
-    return this.produtos.slice(inicio, fim);
+    return this.produtosFiltrados.slice(inicio, fim); // linha modificada para usar produtosFiltrados
   }
 
   // ------------------------------------------
@@ -111,4 +124,20 @@ export class ProdutosComponent {
     return ultimo > this.produtos.length ? this.produtos.length : ultimo;
   }
 
+
+  // ============================================================
+  // GETTER QUE FILTRA OS PRODUTOS COM BASE NO TERMO DE BUSCA
+  // ============================================================
+  get produtosFiltrados(): IProduto[] {
+    if (!this.termoBusca.trim()) {  // Se o termo de busca estiver vazio, retorna todos os produtos 
+      return this.produtos;
+    }
+
+    const termo = this.termoBusca.toLowerCase();
+
+    // Filtra os produtos cujo nome ou descrição contenha o termo de busca (case insensitive) 
+    return this.produtos.filter(produto => 
+      produto.descricao.toLowerCase().includes(termo)
+    );
+  }
 }
