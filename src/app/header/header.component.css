@@ -101,6 +101,11 @@ body.dark-mode .main-header__title--gray {
   color: var(--text-color);
 }
 
+.search-form input:focus {
+  box-shadow: 0 0 10px var(--primary-color);
+  animation: pulse 1.5s infinite;
+}
+
 .search-form button {
   border: none;
   background: none;

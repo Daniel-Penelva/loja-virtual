@@ -32,7 +32,19 @@ import { ProdutosService } from '../../services/produtos.service';
           ])
         ], { optional: true})
       ])
-     ])
+     ]),
+
+     // NOVA → anima quando busca é aplicada (quando o array muda)
+    trigger('animacaoBusca', [
+      transition(':enter', [
+        query('.product-list__card', [
+          style({ opacity: 0, transform: 'translateY(10px)' }),
+          stagger(60, [
+            animate('300ms ease-out', style({ opacity: 1, transform: 'translateY(0)' }))
+          ])
+        ], { optional: true })
+      ])
+    ])
   ]
 })
 export class ProdutosComponent {

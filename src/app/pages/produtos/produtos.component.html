@@ -25,7 +25,7 @@
      (AGORA PAGINADOS)
      Apenas adiciona o atributo [@listaAnimada] para ativar a animação
      ====================================================== -->
-<section class="product-list" *ngIf="!isLoading" @listaAnimada>
+<section class="product-list" *ngIf="!isLoading" @listaAnimada @animacaoBusca>
   <div class="product-list__card"
        *ngFor="let produto of produtosPaginados">
 
@@ -47,6 +47,10 @@
         Comprar
       </button>
     </a>
+  </div>
+
+  <div *ngIf="produtosFiltrados.length === 0" class="no-results">
+    <p>Nenhum produto encontrado</p>
   </div>
 </section>
 
